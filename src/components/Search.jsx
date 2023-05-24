@@ -10,7 +10,6 @@ export default function Search() {
 
   const handleCocktailSearchClick = (e) => {
     e.preventDefault();
-    console.log(cocktail);
   };
   return (
     <div>
