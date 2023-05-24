@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { CocktailApi } from "../api/CocktailApi";
-import Select from "react-select";
 
 export default function Search() {
   const [cocktail, setCocktail] = useState("");
