@@ -1,6 +1,8 @@
 # the-black-bar
 Cocktail app. Search, get recommended, and even... make?
 
+I'm using the magnificent <strong>https://www.thecocktaildb.com/api.php</strong> api for this.
+
 <h1>Landing Page</h1>
 
 ![Landing](https://github.com/shoeslace911/the-black-bar/assets/98511262/cdc08565-b1da-420d-abdd-ab0b79cc6bfb)
