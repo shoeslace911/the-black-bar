@@ -8,7 +8,7 @@ export function CocktailApi({ searchedCocktailName }) {
       .then((response) => response.json())
       .then((data) => {
         const drinks = data.drinks.map((drink) => {
-          return drink.strDrink;
+          return { value: drink.strDrink, label: `${drink.strDrink}Cocktail` };
         });
         setCocktails(drinks && drinks);
       })
@@ -17,14 +17,4 @@ export function CocktailApi({ searchedCocktailName }) {
       });
     console.log(cocktails);
   }, [searchedCocktailName]);
-
-  return (
-    <>
-      <ul>
-        {cocktails.forEach((cocktail) => {
-          return <li>{cocktail}</li>;
-        })}
-      </ul>
-    </>
-  );
 }
