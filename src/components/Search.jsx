@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { CocktailApi } from "../api/CocktailApi";
 
-export default function Search() {
+export default function Search({ cocktails }) {
   const [cocktail, setCocktail] = useState("");
 
   const handleCocktailSearch = (e) => {
     setCocktail(e.target.value);
-    console.log(cocktail);
   };
 
   const handleCocktailSearchClick = (e) => {
@@ -16,9 +15,8 @@ export default function Search() {
     <div>
       <h1 className="text-center text-4xl">Search here</h1>
       <form>
-        <CocktailApi searchedCocktailName={cocktail} />
         <input
-          type="text"
+          type="dropbox"
           placeholder="Search for cocktails"
           onChange={handleCocktailSearch}
           value={cocktail}
@@ -28,6 +26,8 @@ export default function Search() {
           Submit
         </button>
       </form>
+
+      <CocktailApi searchedCocktailName={cocktail} />
     </div>
   );
 }
