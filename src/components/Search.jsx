@@ -8,7 +8,6 @@ export default function Search() {
 
   const handleCocktailSearch = (e) => {
     setCocktail(e.target.value);
-    console.log("cocktail value", cocktail);
   };
 
   const handleCocktailSearchClick = (e) => {
