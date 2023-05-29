@@ -15,11 +15,10 @@ export default function Search() {
     e.preventDefault();
   };
 
-  const loadOptions = async () => {
+  const loadOptions = async (searchValue, callback) => {
     try {
-      const response = await fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${cocktail}`);
+      const response = await fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`);
       const data = await response.json();
-
       const drinks = data.drinks.map((drink) => ({
         value: drink.strDrink,
         label: drink.strDrink,
@@ -34,10 +33,12 @@ export default function Search() {
     <div>
       <h1 className="text-center text-4xl">Search here</h1>
       <form>
-        <AsyncSelect loadOptions={loadOptions} placeholder="Search for cocktails" onChange={handleCocktailSearch} />
-        <button type="drop" onClick={handleCocktailSearchClick}>
-          Submit
-        </button>
+        <AsyncSelect
+          loadOptions={loadOptions}
+          placeholder="Search for cocktails"
+          onChange={handleCocktailSearch}
+          className="bg-grey-300"
+        />
       </form>
     </div>
   );
