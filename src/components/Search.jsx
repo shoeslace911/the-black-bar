@@ -1,5 +1,7 @@
+import React from "react";
 import { useState } from "react";
-import { CocktailApi } from "../api/CocktailApi";
+import AsyncSelect from "react-select/async";
+import { useEffect } from "react";
 
 export default function Search() {
   const [cocktail, setCocktail] = useState("");
@@ -11,17 +13,32 @@ export default function Search() {
   const handleCocktailSearchClick = (e) => {
     e.preventDefault();
   };
+
+  const loadOptions = async (searchValue, callback) => {
+    try {
+      const response = await fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`);
+      const data = await response.json();
+      const drinks = data.drinks.map((drink) => ({
+        value: drink.strDrink,
+        label: drink.strDrink,
+      }));
+      return drinks;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <h1 className="text-center text-4xl">Search here</h1>
       <form>
-        <input onChange={handleCocktailSearch} value={cocktail} type="text" className=" bg-slate-300" />
-        <button type="drop" onClick={handleCocktailSearchClick}>
-          Submit
-        </button>
-        <CocktailApi searchedCocktailName={cocktail} />
+        <AsyncSelect
+          loadOptions={loadOptions}
+          placeholder="Search for cocktails"
+          onChange={handleCocktailSearch}
+          className="bg-grey-300"
+        />
       </form>
-      <h1></h1>
     </div>
   );
 }
