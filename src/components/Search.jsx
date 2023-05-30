@@ -1,19 +1,17 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AsyncSelect from "react-select/async";
-import { useEffect } from "react";
 
 export default function Search() {
-  const [cocktail, setCocktail] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
-  const handleCocktailSearch = (e) => {
-    setCocktail(e.target.value);
+  const handleOnChange = (e) => {
+    if (e) {
+      setSearchValue(e.value);
+    } else {
+      setSearchValue("");
+      console.log("No option selected");
+    }
   };
-
-  const handleCocktailSearchClick = (e) => {
-    e.preventDefault();
-  };
-
   const loadOptions = async (searchValue, callback) => {
     try {
       const response = await fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`);
@@ -22,9 +20,12 @@ export default function Search() {
         value: drink.strDrink,
         label: drink.strDrink,
       }));
+
+      console.log(data);
       return drinks;
     } catch (error) {
       console.log(error);
+      throw error;
     }
   };
 
@@ -35,7 +36,7 @@ export default function Search() {
         <AsyncSelect
           loadOptions={loadOptions}
           placeholder="Search for cocktails"
-          onChange={handleCocktailSearch}
+          onChange={handleOnChange}
           className="bg-grey-300"
         />
       </form>
