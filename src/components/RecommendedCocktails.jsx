@@ -38,6 +38,7 @@ export default function RecommendedCocktails() {
       {recommendedCocktails.map((cocktail) => (
         <div key={cocktail.drinkId}>
           <h1>{cocktail.drink}</h1>
+          <img src={cocktail.thumbnail} alt="drink picture" />
         </div>
       ))}
     </div>
