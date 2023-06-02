@@ -28,7 +28,7 @@ export default function Navbar() {
             <li className="drop-shadow-lg text-2xl">About</li>
           </a>
         </div>
-        <Searchbar onChange={handleOnChange} className={" text-black w-72 text-4xl"} />
+        <Searchbar onChange={handleOnChange} className={"text-black w-72 text-xl"} />
       </ul>
     </nav>
   );
