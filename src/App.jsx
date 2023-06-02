@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import RecommendedCocktails from "./components/RecommendedCocktails";
 import LandingPage from "./components/LandingPage";

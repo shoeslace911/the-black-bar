@@ -1,6 +1,6 @@
 import AsyncSelect from "react-select/async";
 
-export default function Searchbar({ onChange, className, placeholder, searchValue }) {
+export default function Searchbar({ onChange, className, placeholder }) {
   const loadOptions = async (searchValue, callback) => {
     try {
       const response = await fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`);

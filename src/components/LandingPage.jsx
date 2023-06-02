@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import AsyncSelect from "react-select/async";
 import Searchbar from "./Search/Searchbar";
 
 export default function Search() {
@@ -18,7 +17,7 @@ export default function Search() {
     <div className="flex flex-col justify-center h-screen bg-hero bg-cover">
       <h1 className="text-center text-4xl drop-shadow-lg text-white">Search here</h1>
       <form>
-        <Searchbar searchValue={searchValue} onChange={handleOnChange} className={"bg-grey-300 mx-96"} />
+        <Searchbar onChange={handleOnChange} className={"bg-grey-300 mx-96"} />
       </form>
     </div>
   );
