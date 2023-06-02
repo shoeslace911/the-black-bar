@@ -1,13 +1,13 @@
 import { useState } from "react";
-import Navbar from "./components/Navbar";
-import Search from "./components/Search";
+import Navbar from "./components/Navbar/Navbar";
 import RecommendedCocktails from "./components/RecommendedCocktails";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Search />
+      <LandingPage />
       <RecommendedCocktails />
     </>
   );
