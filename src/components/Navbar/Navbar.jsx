@@ -14,25 +14,28 @@ export default function Navbar() {
     }
   };
 
+  const hoverStyle =
+    "drop-shadow-lg text-2xl inline px-14 before:content-[' '] before:w-full before:bg-white before:h-2 before:absolute before:-top-0 before:-left-0  ";
+
   return (
-    <nav className="fixed top-0 w-full h-56 my-10 z-10">
-      <ul className="flex gap-5 w-full text-white text-5xl justify-evenly  font-display">
+    <nav className="fixed top-0 w-full py-8 z-10 bg-black">
+      <ul className="flex gap-5 w-full text-white text-5xl justify-evenly font-display ">
         <li className="drop-shadow-lg">The Black Bar</li>
-        <div className="flex gap-16">
-          <a href="#">
-            <li className="drop-shadow-lg text-2xl">Home</li>
+        <div>
+          <a href="#" className="my-auto">
+            <li className={hoverStyle}>Home</li>
           </a>
           <a href="#cocktails">
-            <li className="drop-shadow-lg text-2xl">Cocktails</li>
+            <li className={hoverStyle}>Cocktails</li>
           </a>
           <a href="#cocktails">
-            <li className="drop-shadow-lg text-2xl">About</li>
+            <li className={hoverStyle}>About</li>
           </a>
         </div>
         <Searchbar
           styles={SearchBarStyle}
           onChange={handleOnChange}
-          className={" w-72 text-xl text-black  "}
+          className={` w-72 text-xl text-black  `}
           placeholder={`Cocktails`}
         />
       </ul>
