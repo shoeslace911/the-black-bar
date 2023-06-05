@@ -38,9 +38,12 @@ export default function Search() {
   return (
     <div className="flex flex-col justify-center h-screen bg-hero bg-cover font-display ">
       <h1 className="text-center text-8xl drop-shadow-lg brightness-100 text-white">SEARCH FOR COCKTAILS</h1>
-      <form>
-        <Searchbar onChange={handleOnChange} className={"bg-grey-300 w-4/12 pt-5 mx-96 "} styles={searchbarStyle} />
-      </form>
+      <Searchbar
+        onChange={handleOnChange}
+        placeholder={"Cocktails"}
+        className={"bg-grey-300 w-4/12 pt-5 mx-auto text-2xl "}
+        styles={searchbarStyle}
+      />
     </div>
   );
 }

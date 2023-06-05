@@ -7,7 +7,7 @@ export default {
         display: ["DM Serif Display", "serif"],
       },
       backgroundImage: {
-        hero: "url('src/assets/landingPage/blackBarBackground.png')",
+        hero: "url('src/assets/landingPage/blackBarBackground3.png')",
       },
     },
   },
