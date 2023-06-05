@@ -7,7 +7,7 @@ export default {
         display: ["DM Serif Display", "serif"],
       },
       backgroundImage: {
-        hero: "url('src/assets/landingPage/pexels-chris-f-1283219.jpg')",
+        hero: "url('src/assets/landingPage/blackBarBackground3.png')",
       },
     },
   },
