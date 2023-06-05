@@ -1,6 +1,4 @@
 import AsyncSelect from "react-select/async";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export default function Searchbar({ onChange, className, placeholder, styles }) {
   const loadOptions = async (searchValue, callback) => {
