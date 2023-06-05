@@ -13,11 +13,33 @@ export default function Search() {
     }
   };
 
+  // react-select async searchbar style
+  const searchbarStyle = {
+    control: (provided, state) => ({
+      ...provided,
+      backgroundColor: "none",
+      borderTop: "none",
+      borderLeft: "none",
+      borderRight: "none",
+      borderRadius: "0%",
+      color: "white",
+    }),
+    indicatorSeparator: () => null, // Remove the separator
+    dropdownIndicator: (provided) => ({
+      ...provided,
+      color: "white",
+    }),
+    placeholder: (past) => ({
+      ...past,
+      color: "white",
+    }),
+  };
+
   return (
-    <div className="flex flex-col justify-center h-screen bg-hero bg-cover">
-      <h1 className="text-center text-4xl drop-shadow-lg text-white">Search here</h1>
+    <div className="flex flex-col justify-center h-screen bg-hero bg-cover font-display ">
+      <h1 className="text-center text-8xl drop-shadow-lg brightness-100 text-white">SEARCH FOR COCKTAILS</h1>
       <form>
-        <Searchbar onChange={handleOnChange} className={"bg-grey-300 mx-96"} />
+        <Searchbar onChange={handleOnChange} className={"bg-grey-300 w-4/12 pt-5 mx-96 "} styles={searchbarStyle} />
       </form>
     </div>
   );
