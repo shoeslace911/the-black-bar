@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { fetchRecommendedCocktails } from "../hooks/RecommendedCocktails";
 
 export default function RecommendedCocktails() {
   const [recommendedCocktails, setRecommendedCocktails] = useState([]);
@@ -33,14 +34,16 @@ export default function RecommendedCocktails() {
     }
   }, [recommendedCocktails]);
   return (
-    <div>
+    <div className="text-white bg-gradient-to-br from-zinc-950 from-30% to-zinc-800">
       <h1 className="text-4xl text-center pt-5">Recommended Cocktails</h1>
-      {recommendedCocktails.map((cocktail) => (
-        <div key={cocktail.drinkId}>
-          <h1>{cocktail.drink}</h1>
-          <img src={cocktail.thumbnail} alt="drink picture" />
-        </div>
-      ))}
+      <div>
+        {recommendedCocktails.map((cocktail) => (
+          <div key={cocktail.drinkId}>
+            <h1>{cocktail.drink}</h1>
+            <img src={cocktail.thumbnail} className="w-80" alt="drink picture" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -24,12 +24,12 @@ export default function Navbar() {
     <nav
       className={
         background
-          ? "fixed top-0 w-full py-8 z-10 bg-black transition-colors"
-          : "fixed top-0 w-full py-8 z-10 transition-colors"
+          ? "fixed top-0 w-full py-8 z-10 bg-gradient-to-r from-stone-900 from-70% to-stone-950 ease-out duration-500"
+          : "fixed top-0 w-full py-8 z-10 ease-out duration-500"
       }
     >
       <ul className="flex gap-5 w-full text-white text-5xl justify-evenly font-display ">
-        <li className="drop-shadow-lg transition-all duration-300">The Black Bar</li>
+        <li className="drop-shadow-lg ease-out duration-500">The Black Bar</li>
         <div>
           <a href="#">
             <li className={hoverStyle}>Home</li>
