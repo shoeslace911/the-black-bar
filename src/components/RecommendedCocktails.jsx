@@ -3,11 +3,19 @@ import { useEffect, useState } from "react";
 export default function RecommendedCocktails() {
   const [recommendedCocktails, setRecommendedCocktails] = useState([]);
   const [activationCount, setActivationCount] = useState(0);
-  const [ingredients, setIngredients] = useState([]);
 
-  const handleIngredients = (ingredients) => {
-    console.log("asihf");
+  // ingredients extraction
+  const handleIngredients = (drink) => {
+    let ingredients = [];
+    for (let i = 1; i < 14; i++) {
+      if (drink[`strIngredient${i}`] !== null) {
+        ingredients.push(drink[`strIngredient${i}`]);
+      } else {
+        return ingredients;
+      }
+    }
   };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,9 +26,8 @@ export default function RecommendedCocktails() {
           drink: drink.strDrink,
           isAlcoholic: drink.strAlcoholic,
           thumbnail: drink.strDrinkThumb,
-          ingredient: drink.strIngredient1,
+          ingredients: handleIngredients(drink),
         }));
-        console.log(data);
         setRecommendedCocktails((prevCocktails) => {
           return [...prevCocktails, ...gotCocktails];
         });
@@ -42,16 +49,22 @@ export default function RecommendedCocktails() {
         {recommendedCocktails.map((cocktail) => (
           <div key={cocktail.drinkId} className="flex">
             <img src={cocktail.thumbnail} className="w-80" alt="drink picture" />
-            <div className="ml-5 w-96">
+            <div className="ml-5 w-96 relative">
               <h1 className="text-3xl">{cocktail.drink}</h1>
               <h1 className="text-2xl">{cocktail.isAlcoholic}</h1>
               <div className="mt-5">
                 <h1 className="text-2xl">Ingredients</h1>
                 <ul>
-                  <li className="text-2md ">{cocktail.ingredient}</li>
+                  {cocktail.ingredients.map((item) => {
+                    return (
+                      <li className="text-12" key={crypto.randomUUID}>
+                        {item}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
-              <h1 className="text-right mt-10 underline text-xl">See More →</h1>
+              <h1 className="text-right mt-10 underline text-xl absolute bottom-10 right-10">See More →</h1>
             </div>
           </div>
         ))}
