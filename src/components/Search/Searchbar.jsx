@@ -1,26 +1,11 @@
 import AsyncSelect from "react-select/async";
+import { LoadOptions } from "../../data/CocktailData";
 
 export default function Searchbar({ onChange, className, placeholder, styles }) {
-  const loadOptions = async (searchValue, callback) => {
-    try {
-      const response = await fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`);
-      const data = await response.json();
-      const drinks = data.drinks.map((drink) => ({
-        value: drink.strDrink,
-        label: drink.strDrink,
-      }));
-
-      console.log(data);
-      return drinks;
-    } catch (error) {
-      console.log(error);
-      throw error;
-    }
-  };
   return (
     <div>
       <AsyncSelect
-        loadOptions={loadOptions}
+        loadOptions={LoadOptions}
         styles={styles}
         onChange={onChange}
         className={className}
