@@ -3,7 +3,11 @@ import { useEffect, useState } from "react";
 export default function RecommendedCocktails() {
   const [recommendedCocktails, setRecommendedCocktails] = useState([]);
   const [activationCount, setActivationCount] = useState(0);
+  const [ingredients, setIngredients] = useState([]);
 
+  const handleIngredients = (ingredients) => {
+    console.log("asihf");
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -16,7 +20,7 @@ export default function RecommendedCocktails() {
           thumbnail: drink.strDrinkThumb,
           ingredient: drink.strIngredient1,
         }));
-
+        console.log(data);
         setRecommendedCocktails((prevCocktails) => {
           return [...prevCocktails, ...gotCocktails];
         });
@@ -32,19 +36,22 @@ export default function RecommendedCocktails() {
     }
   }, [recommendedCocktails]);
   return (
-    <div className="mx-44 py-14">
-      <h1 className="text-4xl text-center pt-5">Recommended Cocktails</h1>
+    <div className="mx-44 py-14 font-display " id="cocktails">
+      <h1 className="text-4xl text-center pt-5 mb-20">Recommended Cocktails</h1>
       <div className="flex my-50 flex-wrap gap-8">
         {recommendedCocktails.map((cocktail) => (
           <div key={cocktail.drinkId} className="flex">
             <img src={cocktail.thumbnail} className="w-80" alt="drink picture" />
-            <div>
-              <h1>{cocktail.drink}</h1>
-              <h1>{cocktail.isAlcoholic}</h1>
-              <ul>
-                <li>{cocktail.ingredient}</li>
-              </ul>
-              <h1>See More →</h1>
+            <div className="ml-5 w-96">
+              <h1 className="text-3xl">{cocktail.drink}</h1>
+              <h1 className="text-2xl">{cocktail.isAlcoholic}</h1>
+              <div className="mt-5">
+                <h1 className="text-2xl">Ingredients</h1>
+                <ul>
+                  <li className="text-2md ">{cocktail.ingredient}</li>
+                </ul>
+              </div>
+              <h1 className="text-right mt-10 underline text-xl">See More →</h1>
             </div>
           </div>
         ))}
