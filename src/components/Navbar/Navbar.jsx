@@ -24,7 +24,7 @@ export default function Navbar() {
     <nav
       className={
         background
-          ? "fixed top-0 w-full py-8 z-10 bg-gradient-to-r from-stone-900 from-70% to-stone-950 ease-out duration-500"
+          ? "fixed top-0 w-full py-8 z-10 bg-gradient-to-r from-stone-900 from-70% to-stone-950 ease-out duration-500 "
           : "fixed top-0 w-full py-8 z-10 ease-out duration-500"
       }
     >

@@ -4,7 +4,7 @@ import LandingPage from "./components/LandingPage";
 
 function App() {
   return (
-    <div className="text-white bg-gradient-to-br from-zinc-950 from-30% to-zinc-800">
+    <div className="text-white bg-gradient-to-br  from-zinc-950 from-30% to-zinc-800 ">
       <Navbar />
       <LandingPage />
       <RecommendedCocktails />

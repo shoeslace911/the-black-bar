@@ -16,6 +16,7 @@ export default function RecommendedCocktails() {
     }
   };
 
+  // grabbing of the API and return of the data
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,16 +42,17 @@ export default function RecommendedCocktails() {
       fetchData();
       setActivationCount(activationCount + 1);
     }
-  }, [recommendedCocktails]);
+  });
+
   return (
-    <div className="mx-44 py-14 font-display " id="cocktails">
+    <div className="mx-44 py-14 font-display  " id="cocktails">
       <h1 className="text-4xl text-center pt-5 mb-20">Recommended Cocktails</h1>
       <div className="flex my-50 flex-wrap gap-8">
         {recommendedCocktails.map((cocktail) => (
           <div key={cocktail.drinkId} className="flex">
             <img src={cocktail.thumbnail} className="w-80" alt="drink picture" />
             <div className="ml-5 w-96 relative">
-              <h1 className="text-3xl">{cocktail.drink}</h1>
+              <h1 className="text-4xl">{cocktail.drink}</h1>
               <h1 className="text-2xl">{cocktail.isAlcoholic}</h1>
               <div className="mt-5">
                 <h1 className="text-2xl">Ingredients</h1>
