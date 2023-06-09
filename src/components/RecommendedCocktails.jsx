@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 export default function RecommendedCocktails() {
   const [recommendedCocktails, setRecommendedCocktails] = useState([]);
   const [activationCount, setActivationCount] = useState(0);
+  const [ingredientId, setIngredientId] = useState(0);
 
   // ingredients extraction
   const handleIngredients = (drink) => {
@@ -29,10 +30,12 @@ export default function RecommendedCocktails() {
           thumbnail: drink.strDrinkThumb,
           ingredients: handleIngredients(drink),
         }));
+        setIngredientId(() => {
+          ingredientId + 1;
+        });
         setRecommendedCocktails((prevCocktails) => {
           return [...prevCocktails, ...gotCocktails];
         });
-        console.log("random drink is", recommendedCocktails);
       } catch (error) {
         console.log(error);
       }
@@ -45,7 +48,7 @@ export default function RecommendedCocktails() {
   });
 
   return (
-    <div className="mx-44 py-14 font-display  " id="cocktails">
+    <div className="mx-44 py-14 font-display" id="cocktails">
       <h1 className="text-4xl text-center pt-5 mb-20">Recommended Cocktails</h1>
       <div className="flex my-50 flex-wrap gap-8">
         {recommendedCocktails.map((cocktail) => (
@@ -59,7 +62,7 @@ export default function RecommendedCocktails() {
                 <ul>
                   {cocktail.ingredients.map((item) => {
                     return (
-                      <li className="text-12" key={crypto.randomUUID}>
+                      <li className="text-12" key={ingredientId}>
                         {item}
                       </li>
                     );
