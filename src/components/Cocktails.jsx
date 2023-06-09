@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { handleIngredients } from "../hooks/HandleIngredients";
 
 export default function Cocktails() {
   const [cocktails, setCocktails] = useState([]);
@@ -8,7 +9,14 @@ export default function Cocktails() {
       try {
         const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a`);
         const data = await response.json();
-        console.log(data);
+        const cocktailData = data.drinks.map((drink) => ({
+          cocktailId: drink.idDrink,
+          cocktailName: drink.strDrink,
+          isAlcoholic: drink.strAlcohol,
+          thumbnail: drink.strDrinkThumb,
+          ingredients: handleIngredients(drink),
+        }));
+        console.log("data", cocktailData);
       } catch (error) {
         console.log(error);
       }

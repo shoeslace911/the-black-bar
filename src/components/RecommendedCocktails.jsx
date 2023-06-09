@@ -1,23 +1,11 @@
 import { useEffect, useState } from "react";
+import { handleIngredients } from "../hooks/HandleIngredients";
 
 export default function RecommendedCocktails() {
   const [recommendedCocktails, setRecommendedCocktails] = useState([]);
   const [activationCount, setActivationCount] = useState(0);
   const [ingredientId, setIngredientId] = useState(0);
 
-  // ingredients extraction
-  const handleIngredients = (drink) => {
-    let ingredients = [];
-    for (let i = 1; i < 14; i++) {
-      if (drink[`strIngredient${i}`] !== null) {
-        ingredients.push(drink[`strIngredient${i}`]);
-      } else {
-        return ingredients;
-      }
-    }
-  };
-
-  // grabbing of the API and return of the data
   useEffect(() => {
     const fetchData = async () => {
       try {
