@@ -4,6 +4,8 @@ import { handleIngredients } from "../hooks/HandleIngredients";
 export default function Cocktails() {
   const [cocktails, setCocktails] = useState([]);
 
+  const activationCount = 2;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -16,20 +18,30 @@ export default function Cocktails() {
           thumbnail: drink.strDrinkThumb,
           ingredients: handleIngredients(drink),
         }));
-        console.log("data", cocktailData);
+        setCocktails((prevCocktails) => {
+          return [...prevCocktails, cocktailData];
+        });
       } catch (error) {
         console.log(error);
       }
     };
-
     fetchData();
   }, []);
+
   return (
     <div className="mx-44 py-14 font-display">
       <h1 className="text-4xl text-center  py-20 ">Cocktails</h1>
-      <ul>
-        <li>GAMER DRINk</li>
-      </ul>
+      <div className="flex flex-wrap">
+        {cocktails[0] &&
+          cocktails[0].map((drink) => (
+            <div className="flex gap-48 py-10" key={drink.cocktailId}>
+              <img src={drink.thumbnail} alt="drink image" className="w-56" />
+              <div>
+                <h1>{drink.cocktailName}</h1>
+              </div>
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
