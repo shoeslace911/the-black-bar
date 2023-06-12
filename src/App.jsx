@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar/Navbar";
 import RecommendedCocktails from "./components/RecommendedCocktails";
 import LandingPage from "./components/LandingPage";
+import Cocktails from "./components/Cocktails";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Navbar />
       <LandingPage />
       <RecommendedCocktails />
+      <Cocktails />
     </div>
   );
 }

@@ -1,5 +1,5 @@
-export  function LoadOptions(searchValue) {
-   try {
+export async function LoadOptions(searchValue) {
+  try {
     const response = await fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`);
     const data = await response.json();
     const drinks = data.drinks.map((drink) => ({
