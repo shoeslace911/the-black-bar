@@ -44,13 +44,13 @@ export default function RecommendedCocktails() {
             <img src={cocktail.thumbnail} className="w-80" alt="drink picture" />
             <div className="ml-5 w-96 relative">
               <h1 className="text-4xl">{cocktail.drink}</h1>
-              <h1 className="text-2xl">{cocktail.isAlcoholic}</h1>
+              <h1 className="text-2xl font-text ">{cocktail.isAlcoholic}</h1>
               <div className="mt-5">
-                <h1 className="text-2xl">Ingredients</h1>
+                <h1 className="text-2xl font-text underline">Ingredients</h1>
                 <ul>
                   {cocktail.ingredients.map((item) => {
                     return (
-                      <li className="text-12" key={ingredientId}>
+                      <li className="text-12 font-text " key={ingredientId}>
                         {item}
                       </li>
                     );

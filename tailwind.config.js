@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         display: ["DM Serif Display", "serif"],
+        text: ["Poppins", "sans-serif"],
       },
       backgroundImage: {
         hero: "url('src/assets/landingPage/blackBarBackground3.png')",
