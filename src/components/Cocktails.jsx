@@ -4,8 +4,6 @@ import { handleIngredients } from "../hooks/HandleIngredients";
 export default function Cocktails() {
   const [cocktails, setCocktails] = useState([]);
 
-  const activationCount = 2;
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,15 +27,24 @@ export default function Cocktails() {
   }, []);
 
   return (
-    <div className="mx-44 py-14 font-display">
+    <div className="mx-30 py-14 font-display">
       <h1 className="text-4xl text-center  py-20 ">Cocktails</h1>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-evenly">
         {cocktails[0] &&
           cocktails[0].map((drink) => (
-            <div className="flex gap-48 py-10" key={drink.cocktailId}>
+            <div className="flex w-96 py-10 relative" key={drink.cocktailId}>
               <img src={drink.thumbnail} alt="drink image" className="w-56" />
-              <div>
-                <h1>{drink.cocktailName}</h1>
+              <div className="pl-5">
+                <h1 className="text-3xl pb-5">{drink.cocktailName}</h1>
+                <h2 className="text-xl font-text underline">Ingredients</h2>
+                {drink.ingredients.map((item) => {
+                  return (
+                    <p className="text-sm font-text" key={crypto.randomUUID}>
+                      {item}
+                    </p>
+                  );
+                })}
+                <h3 className="absolute right-10 bottom-14 font-text font-semibold">More →</h3>
               </div>
             </div>
           ))}
