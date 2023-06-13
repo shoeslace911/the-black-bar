@@ -36,12 +36,12 @@ export default function RecommendedCocktails() {
   });
 
   return (
-    <div className="mx-44 py-14 font-display" id="cocktails">
+    <div className="mx-30 py-14 font-display" id="cocktails">
       <h1 className="text-4xl text-center pt-5 mb-20">Recommended Cocktails</h1>
-      <div className="flex my-50 flex-wrap gap-8">
+      <div className="flex my-50 justify-evenly flex-wrap gap-8">
         {recommendedCocktails.map((cocktail) => (
           <div key={cocktail.drinkId} className="flex">
-            <img src={cocktail.thumbnail} className="w-80" alt="drink picture" />
+            <img src={cocktail.thumbnail} className="w-60" alt="drink picture" />
             <div className="ml-5 w-96 relative">
               <h1 className="text-4xl">{cocktail.drink}</h1>
               <h1 className="text-2xl font-text ">{cocktail.isAlcoholic}</h1>
