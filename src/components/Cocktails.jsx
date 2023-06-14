@@ -38,13 +38,9 @@ export default function Cocktails() {
                 <h1 className="text-3xl pb-5">{drink.cocktailName}</h1>
                 <h2 className="text-xl font-text underline">Ingredients</h2>
                 {drink.ingredients.map((item) => {
-                  return (
-                    <p className="text-sm font-text" key={crypto.randomUUID}>
-                      {item}
-                    </p>
-                  );
+                  return <p className="text-sm font-text">{item}</p>;
                 })}
-                <h3 className="absolute right-10 bottom-14 font-text font-semibold">More →</h3>
+                <h3 className="absolute right-10 bottom-14 font-text underline">More →</h3>
               </div>
             </div>
           ))}

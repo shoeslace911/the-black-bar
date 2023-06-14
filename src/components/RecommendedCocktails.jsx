@@ -50,7 +50,7 @@ export default function RecommendedCocktails() {
                 <ul>
                   {cocktail.ingredients.map((item) => {
                     return (
-                      <li className="text-12 font-text " key={ingredientId}>
+                      <li className="text-12 font-text" key={ingredientId}>
                         {item}
                       </li>
                     );
