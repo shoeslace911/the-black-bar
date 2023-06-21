@@ -8,7 +8,7 @@ export default {
         text: ["Poppins", "sans-serif"],
       },
       backgroundImage: {
-        hero: "url('src/assets/landingPage/blackBarBackground3.png')",
+        hero: "url('/landingPage/blackBarBackground3.png')",
       },
     },
   },
