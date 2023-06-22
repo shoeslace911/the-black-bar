@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { handleIngredients } from "../hooks/HandleIngredients";
+import { FetchRandomDrinks } from "../data/CocktailData";
 
 export default function Cocktails() {
   const [cocktails, setCocktails] = useState([]);
@@ -44,7 +45,9 @@ export default function Cocktails() {
                     </p>
                   );
                 })}
-                <h3 className="absolute right-10 bottom-14 font-text font-semibold">More →</h3>
+                <h3 className="absolute right-10 bottom-14 font-text font-semibold hover:underline cursor-pointer">
+                  More →
+                </h3>
               </div>
             </div>
           ))}
@@ -52,3 +55,8 @@ export default function Cocktails() {
     </div>
   );
 }
+
+// //loader functins
+// const cocktailsLoader = async () = {
+
+// }

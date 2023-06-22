@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar/Navbar";
 import RecommendedCocktails from "./components/RecommendedCocktails";
 import LandingPage from "./components/LandingPage";
 import Cocktails from "./components/Cocktails";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (

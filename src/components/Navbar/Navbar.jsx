@@ -2,6 +2,8 @@ import { useState } from "react";
 import Searchbar from "../Search/Searchbar";
 import { SearchBarStyle } from "../../hooks/SearchHooks";
 import { hoverStyle } from "../../hooks/NavHooks";
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   const [searchValue, setSearchValue] = useState("");
   const [background, setBackground] = useState(false);
@@ -29,7 +31,9 @@ export default function Navbar() {
       }
     >
       <ul className="flex gap-5 w-full text-white text-5xl justify-evenly font-display ">
-        <li className="drop-shadow-lg ease-out duration-500">The Black Bar</li>
+        <Link to="/">
+          <li className="drop-shadow-lg ease-out duration-500">The Black Bar</li>
+        </Link>
         <div>
           <a href="#">
             <li className={hoverStyle}>Home</li>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { handleIngredients } from "../hooks/HandleIngredients";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function RecommendedCocktails() {
   const [recommendedCocktails, setRecommendedCocktails] = useState([]);
@@ -28,7 +29,6 @@ export default function RecommendedCocktails() {
         console.log(error);
       }
     };
-
     if (activationCount < 5) {
       fetchData();
       setActivationCount(activationCount + 1);
